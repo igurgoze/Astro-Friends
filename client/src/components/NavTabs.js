@@ -22,7 +22,7 @@ function NavTabs() {
           About Us
         </Link>
       </li>
-      <li className="nav-item">
+      <li className="nav-item mr-auto">
         <Link
           to="/friendslist"
           className={location.pathname === "/friendslist" ? 'nav-link active' : 'nav-link'}
@@ -53,6 +53,5 @@ function NavTabs() {
 }
 
 export default NavTabs;
-
 
 
