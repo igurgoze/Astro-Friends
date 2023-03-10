@@ -5,7 +5,7 @@ function NavTabs() {
   const location = useLocation();
 
   return (
-    <ul className="nav nav-tabs">
+    <ul className="nav nav-tabs justify-content-between">
       <li className="nav-item">
         <Link
           to="/"
@@ -30,7 +30,7 @@ function NavTabs() {
           FriendsList
         </Link>
       </li>
-      <div className="d-flex ml-auto">
+      <ul className="nav flex-row">
         <li className="nav-item">
           <Link
             to="/Login"
@@ -47,10 +47,12 @@ function NavTabs() {
             Register
           </Link>
         </li>
-      </div>
+      </ul>
     </ul>
   );
 }
 
 export default NavTabs;
+
+
 
