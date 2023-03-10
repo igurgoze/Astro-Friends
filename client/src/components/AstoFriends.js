@@ -4,7 +4,7 @@ import {
 import NavTabs from './NavTabs';
 
 
-export default function PortfolioContainer() {
+export default function AstoFriends() {
   return (
   
       <div>

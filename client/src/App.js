@@ -1,9 +1,10 @@
 import React from "react";
-import PortfolioContainer from "./components/PortfolioContainer";
+import AstoFriends from "./components/AstoFriends";
 import Home from './components/pages/Home';
 import About from './components/pages/About';
-import Blog from './components/pages/Blog';
-import Contact from './components/pages/Contact';
+import FriendsList from "./components/pages/FriendsList";
+import Login from './components/pages/Login';
+import Register from './components/pages/Register';
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -11,20 +12,22 @@ import {
   RouterProvider
 } from 'react-router-dom';
 
+
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<PortfolioContainer />}>
+    <Route path="/" element={<AstoFriends />}>
       <Route index element={<Home />} />
       <Route path="/about" element={<About />} />
-      <Route path="/blog" element={<Blog />} />
-      <Route path="/contact" element={<Contact />} />
+      <Route path="/FriendsList" element={<FriendsList />} />
+      <Route path="/Login" element={<Login />} />
+      <Route path="/Register" element={<Register />} />
     </Route>
   )
 )
 
 const App = () => (
   <RouterProvider router={router}>
-    <PortfolioContainer />
+    <AstoFriends />
   </RouterProvider>
 );
 

@@ -24,8 +24,8 @@ function NavTabs() {
       </li>
       <li className="nav-item">
         <Link
-          to="/blog"
-          className={location.pathname === "/blog" ? 'nav-link active' : 'nav-link'}
+          to="/friendslist"
+          className={location.pathname === "/friendslist" ? 'nav-link active' : 'nav-link'}
         >
           FriendsList
         </Link>
@@ -33,8 +33,8 @@ function NavTabs() {
       <div className="d-flex ml-auto">
         <li className="nav-item">
           <Link
-            to="/contact"
-            className={location.pathname === "/contact" ? 'nav-link active' : 'nav-link'}
+            to="/Login"
+            className={location.pathname === "/Login" ? 'nav-link active' : 'nav-link'}
           >
             Login
           </Link>
