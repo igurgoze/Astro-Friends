@@ -7,7 +7,7 @@ import '../../styles/ship.css';
 
 export default function About() {
   return (
-    <div className='about-background' style={{color: 'white'}}>
+    <div className='about-background' style={{color: 'white', fontFamily: "'Press Start 2P', cursive"}}>
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <h1 className='fade-in-out'>Click on the ship you want to know about!!</h1>
       </div>

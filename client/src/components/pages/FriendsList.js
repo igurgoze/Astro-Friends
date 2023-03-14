@@ -21,46 +21,46 @@ export default function FriendsList() {
   );
 
   return (
-    <body className= 'friends-list-background app-container'>
-    <div className="container ">
-      <div className="row">
-        <div className="col-lg-8">
-          <h1 className="text-center fade-in-out" style={{color: "white"}}>My Friends List</h1>
-          <div className="d-flex mb-3">
-            <FormControl
-              type="text"
-              placeholder="Search for a friend..."
-              className="me-2"
-              value={searchQuery}
-              onChange={(event) => setSearchQuery(event.target.value)}
-              style={{backgroundColor: "transparent", color: "white", border: "1px solid white", outline: "none"}}
-            />
-            <Link to="/" className="btn btn-primary" style={{backgroundColor: "transparent", color: "white", border: "1px solid white"}}>
-              Play
-            </Link>
-          </div>
-          {filteredFriends.map((friend) => (
-            <div
-              key={friend.name}
-              className="d-flex justify-content-between align-items-center"
-              style={{color: "white"}}
-            >
-              <span className="friend-name">{friend.name}</span>
-              <span className="friend-score badge bg-secondary">
-                {friend.score}
-              </span>
-              <button
-                className="btn btn-danger"
-                onClick={() => handleDeleteFriend(friend.name)}
-                style={{backgroundColor: "transparent", color: "white", border: "1px solid white"}}
-              >
-                X
-              </button>
+    <body className="friends-list-background app-container" style={{ fontFamily: "'Press Start 2P', cursive" }}>
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-8">
+            <h1 className="text-center fade-in-out" style={{ color: "white" }}>My Friends List</h1>
+            <div className="d-flex mb-3">
+              <FormControl
+                type="text"
+                placeholder="Search for a friend..."
+                className="me-2"
+                value={searchQuery}
+                onChange={(event) => setSearchQuery(event.target.value)}
+                style={{ backgroundColor: "transparent", color: "white", border: "1px solid white", outline: "none" }}
+              />
+              <Link to="/" className="btn btn-primary" style={{ backgroundColor: "transparent", color: "white", border: "1px solid white" }}>
+                Play
+              </Link>
             </div>
-          ))}
+            {filteredFriends.map((friend) => (
+              <div
+                key={friend.name}
+                className="d-flex justify-content-between align-items-center"
+                style={{ color: "white" }}
+              >
+                <span className="friend-name" style={{ fontFamily: "'Press Start 2P', cursive" }}>{friend.name}</span>
+                <span className="friend-score badge bg-secondary" style={{ fontFamily: "'Press Start 2P', cursive" }}>
+                  {friend.score}
+                </span>
+                <button
+                  className="btn btn-danger"
+                  onClick={() => handleDeleteFriend(friend.name)}
+                  style={{ backgroundColor: "transparent", color: "white", border: "1px solid white", fontFamily: "'Press Start 2P', cursive" }}
+                >
+                  X
+                </button>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
     </body>
   );
 }
