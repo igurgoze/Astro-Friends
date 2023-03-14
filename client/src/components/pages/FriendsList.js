@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FormControl, ListGroup } from 'react-bootstrap';
+import { FormControl } from 'react-bootstrap';
 import '../../styles/style.css';
 
 export default function FriendsList() {
@@ -21,11 +21,11 @@ export default function FriendsList() {
   );
 
   return (
-    <div
-      className="container friends-list-background">
+    <body className= 'friends-list-background app-container'>
+    <div className="container ">
       <div className="row">
         <div className="col-lg-8">
-          <h1 className="text-center">My Friends List</h1>
+          <h1 className="text-center fade-in-out" style={{color: "white"}}>My Friends List</h1>
           <div className="d-flex mb-3">
             <FormControl
               type="text"
@@ -33,32 +33,34 @@ export default function FriendsList() {
               className="me-2"
               value={searchQuery}
               onChange={(event) => setSearchQuery(event.target.value)}
+              style={{backgroundColor: "transparent", color: "white", border: "1px solid white", outline: "none"}}
             />
-            <Link to="/" className="btn btn-primary">
+            <Link to="/" className="btn btn-primary" style={{backgroundColor: "transparent", color: "white", border: "1px solid white"}}>
               Play
             </Link>
           </div>
-          <ListGroup>
-            {filteredFriends.map((friend) => (
-              <ListGroup.Item
-                key={friend.name}
-                className="friend-item d-flex justify-content-between align-items-center"
+          {filteredFriends.map((friend) => (
+            <div
+              key={friend.name}
+              className="d-flex justify-content-between align-items-center"
+              style={{color: "white"}}
+            >
+              <span className="friend-name">{friend.name}</span>
+              <span className="friend-score badge bg-secondary">
+                {friend.score}
+              </span>
+              <button
+                className="btn btn-danger"
+                onClick={() => handleDeleteFriend(friend.name)}
+                style={{backgroundColor: "transparent", color: "white", border: "1px solid white"}}
               >
-                <span className="friend-name">{friend.name}</span>
-                <span className="friend-score badge bg-secondary">
-                  {friend.score}
-                </span>
-                <button
-                  className="btn btn-danger"
-                  onClick={() => handleDeleteFriend(friend.name)}
-                >
-                  X
-                </button>
-              </ListGroup.Item>
-            ))}
-          </ListGroup>
+                X
+              </button>
+            </div>
+          ))}
         </div>
       </div>
     </div>
+    </body>
   );
 }

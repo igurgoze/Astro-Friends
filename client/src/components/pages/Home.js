@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div className='home-background' style={{color: 'white'}}>
     <div>
-      <h1>Are you ready to rock!?</h1>
+      <h1 className='fade-in-out' >Are you ready to rock!?</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque
         velit, lobortis ut magna varius, blandit rhoncus sem. Morbi lacinia nisi

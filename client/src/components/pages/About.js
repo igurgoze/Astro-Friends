@@ -9,7 +9,7 @@ export default function About() {
   return (
     <div className='about-background' style={{color: 'white'}}>
       <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <h1>About Page</h1>
+        <h1 className='fade-in-out'>Click on the ship you want to know about!!</h1>
       </div>
       <Row style={{ display: 'flex', justifyContent: 'center' }}>
         <Col md={6} lg={4}>
