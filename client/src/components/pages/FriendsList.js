@@ -1,24 +1,64 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { FormControl, ListGroup } from 'react-bootstrap';
+import '../../styles/style.css';
 
 export default function FriendsList() {
+  const [friends, setFriends] = useState([
+    { name: 'Leo', score: 100 },
+    { name: 'Logan', score: 200 },
+    { name: 'Ian', score: 300 },
+  ]);
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const handleDeleteFriend = (name) => {
+    const updatedFriends = friends.filter((friend) => friend.name !== name);
+    setFriends(updatedFriends);
+  };
+
+  const filteredFriends = friends.filter((friend) =>
+    friend.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
-    <div>
-      <h1>My FriendsList</h1>
-      <p>
-        Donec a volutpat quam. Curabitur nec varius justo, sed rutrum ligula.
-        Curabitur pellentesque turpis sit amet eros iaculis, a mollis arcu
-        dictum. Ut vel ante eget massa ornare placerat. Etiam nisl orci, finibus
-        sodales volutpat et, hendrerit ut dolor. Suspendisse porta dictum nunc,
-        sed pretium risus rutrum eget. Nam consequat, ligula in faucibus
-        vestibulum, nisi justo laoreet risus, luctus luctus mi lacus sit amet
-        libero. Class aptent taciti sociosqu ad litora torquent per conubia
-        nostra, per inceptos himenaeos. Mauris pretium condimentum tellus eget
-        lobortis. Interdum et malesuada fames ac ante ipsum primis in faucibus.
-        Donec placerat accumsan mi, ut congue neque placerat eu. Donec nec ipsum
-        in velit pellentesque vehicula sit amet at augue. Maecenas aliquam
-        bibendum congue. Pellentesque semper, lectus non ullamcorper iaculis,
-        est ligula suscipit velit, sed bibendum turpis dui in sapien.
-      </p>
+    <div
+      className="container friends-list-background">
+      <div className="row">
+        <div className="col-lg-8">
+          <h1 className="text-center">My Friends List</h1>
+          <div className="d-flex mb-3">
+            <FormControl
+              type="text"
+              placeholder="Search for a friend..."
+              className="me-2"
+              value={searchQuery}
+              onChange={(event) => setSearchQuery(event.target.value)}
+            />
+            <Link to="/" className="btn btn-primary">
+              Play
+            </Link>
+          </div>
+          <ListGroup>
+            {filteredFriends.map((friend) => (
+              <ListGroup.Item
+                key={friend.name}
+                className="friend-item d-flex justify-content-between align-items-center"
+              >
+                <span className="friend-name">{friend.name}</span>
+                <span className="friend-score badge bg-secondary">
+                  {friend.score}
+                </span>
+                <button
+                  className="btn btn-danger"
+                  onClick={() => handleDeleteFriend(friend.name)}
+                >
+                  X
+                </button>
+              </ListGroup.Item>
+            ))}
+          </ListGroup>
+        </div>
+      </div>
     </div>
   );
 }

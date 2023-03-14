@@ -1,0 +1,25 @@
+.nav-tabs {
+    background-color: black;
+    color: white;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: white !important;
+}
+
+.nav-link:active {
+    color: inherit;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+
+
+.nav-link:focus,
+.nav-link:hover {
+    transform: translateY(-3px);
+    text-decoration: none;
+    color: white !important;
+    outline: none;
+}

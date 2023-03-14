@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import '../styles/navbar.css';
 
 function NavTabs() {
   const location = useLocation();
 
   return (
-    <ul className="nav nav-tabs justify-content-between">
+    <ul className="nav nav-tabs justify-content-between" >
       <li className="nav-item">
         <Link
           to="/"

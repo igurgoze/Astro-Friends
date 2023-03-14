@@ -1,7 +1,11 @@
 import React from 'react';
+import '../../styles/style.css';
+
+
 
 export default function Home() {
   return (
+    <div className='home-background' style={{color: 'white'}}>
     <div>
       <h1>Are you ready to rock!?</h1>
       <p>
@@ -16,6 +20,7 @@ export default function Home() {
         vitae lorem tortor. In elementum ultricies tempus. Interdum et malesuada
         fames ac ante ipsum primis in faucibus.
       </p>
+    </div>
     </div>
   );
 }
