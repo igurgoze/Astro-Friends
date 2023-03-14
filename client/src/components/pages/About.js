@@ -2,6 +2,7 @@ import React from 'react';
 
 export default function About() {
   return (
+    <div className='about-background'>
     <div>
       <h1>About Page</h1>
       <p>
@@ -12,6 +13,7 @@ export default function About() {
         imperdiet. Praesent euismod mi justo, faucibus scelerisque risus cursus
         in. Sed rhoncus mollis diam, sit amet facilisis lectus blandit at.
       </p>
+    </div>
     </div>
   );
 }
