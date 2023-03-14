@@ -8,11 +8,10 @@ export default function LoginForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // do something with the username and password
   };
 
   return (
-    <div className='login-background'>
+    <div className='login-background' style={{color: 'white'}}>
     <div className="d-flex justify-content-center">
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="formUsername">

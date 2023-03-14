@@ -16,7 +16,7 @@ export default function RegisterForm() {
   };
 
   return (
-    <div className='register-background'>
+    <div className='register-background' style={{color: 'white'}}>
     <div className="d-flex justify-content-center align-items-center flex-column">
       <h1 className="mb-4">CREATE YOUR SHIP HERE</h1>
       <Form onSubmit={handleSubmit}>

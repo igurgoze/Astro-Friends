@@ -5,7 +5,7 @@ import '../../styles/style.css';
 
 export default function Home() {
   return (
-    <div className='home-background'>
+    <div className='home-background' style={{color: 'white'}}>
     <div>
       <h1>Are you ready to rock!?</h1>
       <p>
