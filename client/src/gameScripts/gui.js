@@ -18,8 +18,9 @@ export default class Gui {
     }
 
     prepareCanvas() {
-        this.cnv = document.getElementById("canvas")
-        this.ctx = this.cnv.getContext("2d");
+        //this.cnv = document.getElementById("canvas")
+        //this.cnv = this.cnv.current;
+        // this.ctx = this.cnv.getContext("2d");
         document.body.style.margin = 0;
         document.body.style.padding = 0;
         this.resize();

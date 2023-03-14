@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useRef} from "react";
 import AstoFriends from "./components/AstoFriends";
 import Home from './components/pages/Home';
 import About from './components/pages/About';
@@ -24,22 +24,38 @@ import "./gameIndex.js";
 let game = new Game()
 window.gui = new Gui(game)
 
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="/" element={<AstoFriends />}>
-      <Route index element={<Home funcForOnClick={window.gui.startGame()}/>} />
-      <Route path="/about" element={<About />} />
-      <Route path="/FriendsList" element={<FriendsList />} />
-      <Route path="/Login" element={<Login />} />
-      <Route path="/Register" element={<Register />} />
-    </Route>
-  )
-)
+// const router = createBrowserRouter(
+//   createRoutesFromElements(
+//     <Route path="/" element={<AstoFriends />}>
+//       <Route index element={<Home funcForOnClick={window.gui.startGame()}/>} />
+//       <Route path="/about" element={<About />} />
+//       <Route path="/FriendsList" element={<FriendsList />} />
+//       <Route path="/Login" element={<Login />} />
+//       <Route path="/Register" element={<Register />} />
+//     </Route>
+//   )
+// )
 
-const App = () => (
-  <RouterProvider router={router}>
-    <AstoFriends />
-  </RouterProvider>
-);
+const App = () => {
+  const canvasRef = useRef();
+  let game = new Game()
+  window.gui = new Gui(game)
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/" element={<AstoFriends />}>
+        <Route index element={<Home gui={window.gui} canvasRef={canvasRef} funcForOnClick={window.gui.startGame()}/>} />
+        <Route path="/about" element={<About />} />
+        <Route path="/FriendsList" element={<FriendsList />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/Register" element={<Register />} />
+      </Route>
+    )
+  );
+  return(
+    <RouterProvider router={router}>
+      <AstoFriends />
+    </RouterProvider>
+  )
+};
 
 export default App;
