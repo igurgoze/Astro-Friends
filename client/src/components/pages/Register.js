@@ -1,17 +1,42 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import '../../styles/style.css';
 
-export default function RegisterForm() {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+import { useMutation } from '@apollo/client';
+import { ADD_USER } from '../../utils/mutations';
 
-  const handleSubmit = (event) => {
+import Auth from '../../utils/auth';
+
+export default function RegisterForm() {
+  const [formState, setFormState] = useState({
+    username: '',
+    email: '',
+    password: '',
+  });
+  const [addUser, { error, data }] = useMutation(ADD_USER);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(`Username: ${username}\n
-    Email: ${email}\n
-    Password: ${password}`);
+    console.log(formState);
+
+    try {
+      const { data } = await addUser({
+        variables: { ...formState },
+      });
+
+      Auth.login(data.addUser.token);
+    } catch (e) {
+      console.error(e);
+    }
     // Send registration data to server or perform other actions here
   };
 
@@ -24,9 +49,10 @@ export default function RegisterForm() {
           <Form.Label>Username</Form.Label>
           <Form.Control
             type="text"
+            name = "username"
             placeholder="Enter username"
-            value={username}
-            onChange={(event) => setUsername(event.target.value)}
+            value={formState.name}
+            onChange={handleChange}
           />
         </Form.Group>
 
@@ -34,9 +60,10 @@ export default function RegisterForm() {
           <Form.Label>Email</Form.Label>
           <Form.Control
             type="email"
+            name = "email"
             placeholder="Enter email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
+            value={formState.email}
+            onChange={handleChange}
           />
         </Form.Group>
 
@@ -44,9 +71,10 @@ export default function RegisterForm() {
           <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
+            name= "password"
             placeholder="Password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
+            value={formState.password}
+            onChange={handleChange}
           />
         </Form.Group>
 
