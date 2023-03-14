@@ -6,7 +6,7 @@ function NavTabs() {
   const location = useLocation();
 
   return (
-    <ul className="nav nav-tabs justify-content-between" >
+    <ul className="nav nav-tabs justify-content-between" style={{ fontFamily: 'Press Start 2P' }} >
       <li className="nav-item">
         <Link
           to="/"
