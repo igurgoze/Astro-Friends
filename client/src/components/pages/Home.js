@@ -1,21 +1,23 @@
 import React from 'react';
+import "../../gameIndex.css"
 
-export default function Home() {
+export default function Home(funcForOnClick) {
   return (
     <div>
       <h1>Are you ready to rock!?</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque
-        velit, lobortis ut magna varius, blandit rhoncus sem. Morbi lacinia nisi
-        ac dui fermentum, sed luctus urna tincidunt. Etiam ut feugiat ex. Cras
-        non risus mi. Curabitur mattis rutrum ipsum, ut aliquet urna imperdiet
-        ac. Sed nec nulla aliquam, bibendum odio eget, vestibulum tortor. Cras
-        rutrum ligula in tincidunt commodo. Morbi sit amet mollis orci, in
-        tristique ex. Donec nec ornare elit. Donec blandit est sed risus feugiat
-        porttitor. Vestibulum molestie hendrerit massa non consequat. Vestibulum
-        vitae lorem tortor. In elementum ultricies tempus. Interdum et malesuada
-        fames ac ante ipsum primis in faucibus.
-      </p>
+      <div className="fixed"><span>Score: </span><span id="scoreEl">0</span></div>
+      <canvas id="canvas" style={{display: "none"}}></canvas>
+      <div id="load" className="screen" style={{display: "block"}}>
+        Loading, Please Wait...
+      </div>
+      <div id="start" className="screen" style={{display: "none"}}>
+        <img src="Assets/Start_Splash.png" alt='this is the home screen.'/>
+        <button onClick={funcForOnClick}>Let's Play!</button>
+      </div>
+      <div id="end" className="screen" style={{display: "none"}}>
+        <img src="Assets/End_Splash.png" alt='The Game has ended.'/>
+        <button onClick={funcForOnClick}>Play Again!</button>
+      </div>
     </div>
   );
 }
