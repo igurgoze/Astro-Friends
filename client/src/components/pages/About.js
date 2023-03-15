@@ -1,17 +1,54 @@
 import React from 'react';
+import { Row, Col } from 'react-bootstrap';
+import loganship from '../../assets/loganship.PNG';
+import ianship from '../../assets/ianship.PNG';
+import leoship from '../../assets/leoship.PNG';
+import '../../styles/ship.css';
 
 export default function About() {
   return (
-    <div>
-      <h1>About Page</h1>
-      <p>
-        Nunc pharetra finibus est at efficitur. Praesent sed congue diam.
-        Integer gravida dui mauris, ut interdum nunc egestas sed. Aenean sed
-        mollis diam. Nunc aliquet risus ac finibus porta. Nam quis arcu non
-        lectus tincidunt fermentum. Suspendisse aliquet orci porta quam semper
-        imperdiet. Praesent euismod mi justo, faucibus scelerisque risus cursus
-        in. Sed rhoncus mollis diam, sit amet facilisis lectus blandit at.
-      </p>
+    <div className='about-background' style={{color: 'white', fontFamily: "'Press Start 2P', cursive"}}>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <h1 className='fade-in-out'>Click on the ship you want to know about!!</h1>
+      </div>
+      <Row style={{ display: 'flex', justifyContent: 'center' }}>
+        <Col md={6} lg={4}>
+          <div className="ship">
+            <img src={loganship} alt="loganship" className='img-fluid' style={{ width: '40%', height: 'auto' }} />
+            <div className="overlay">
+              <div className="text">
+                <a href="https://codedevlogan.github.io/React-Portfolio/" target="_blank" rel="noopener noreferrer" style={{ color: 'white' }}>
+                  Logan Peterson 
+                </a>
+              </div>
+            </div>
+          </div>
+        </Col>
+        <Col md={6} lg={4}>
+          <div className="ship">
+            <img src={ianship} alt="ianship" className='img-fluid' style={{ width: '40%', height: 'auto' }} />
+            <div className="overlay">
+              <div className="text">
+                <a href="https://igurgoze.github.io/React_Portfolio/" target="_blank" rel="noopener noreferrer" style={{ color: 'white' }}>
+                  Ian Gurgoze
+                </a>
+              </div>
+            </div>
+          </div>
+        </Col>
+        <Col md={6} lg={4}>
+          <div className="ship">
+            <img src={leoship} alt="leoship" className='img-fluid' style={{ width: '40%', height: 'auto' }} />
+            <div className="overlay">
+              <div className="text">
+                <a href="https://lsegura06.github.io/SeguraReactPortfolio/" target="_blank" rel="noopener noreferrer" style={{ color: 'white' }}>
+                  Leo Segura
+                </a>
+              </div>
+            </div>
+          </div>
+        </Col>
+      </Row>
     </div>
   );
 }

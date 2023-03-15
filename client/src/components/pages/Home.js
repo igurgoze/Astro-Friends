@@ -1,5 +1,6 @@
 import React, {useRef} from 'react';
 import "../../gameIndex.css"
+import '../../styles/style.css';
 import Game from '../../gameScripts/game';
 import GameLoop from '../../gameScripts/gameloop';
 import StartImg from "../../Assets/Start_Splash.png";
@@ -147,6 +148,7 @@ export default function Home() {
   window.gui = new Gui(game);
 
   return (
+    <div className='home-background' style={{color: 'white', fontFamily: "'Press Start 2P', cursive"}}>
     <div>
       <h1>Are you ready to rock!?</h1>
       <div className="fixed"><span>Score: </span><span id="scoreEl">0</span></div>
@@ -162,6 +164,7 @@ export default function Home() {
         <img src={EndImg} alt='The Game has ended.'/>
         <button onClick={funcForOnClick}>Play Again!</button>
       </div>
+    </div>
     </div>
   );
 }

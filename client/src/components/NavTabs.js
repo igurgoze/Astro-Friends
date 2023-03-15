@@ -1,17 +1,18 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import '../styles/navbar.css';
 
 function NavTabs() {
   const location = useLocation();
 
   return (
-    <ul className="nav nav-tabs justify-content-between">
+    <ul className="nav nav-tabs justify-content-between" style={{ fontFamily: "'Press Start 2P', cursive" }}>
       <li className="nav-item">
         <Link
           to="/"
           className={location.pathname === "/" ? 'nav-link active' : 'nav-link'}
         >
-          Home
+          Play
         </Link>
       </li>
       <li className="nav-item">
@@ -53,5 +54,4 @@ function NavTabs() {
 }
 
 export default NavTabs;
-
 

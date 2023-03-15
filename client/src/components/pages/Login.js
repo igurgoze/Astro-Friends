@@ -1,22 +1,54 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Form, Button } from 'react-bootstrap';
+import '../../styles/style.css';
 
-export default function Login() {
+export default function LoginForm() {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  };
+
   return (
-    <div>
-      <h1>Login</h1>
-      <p>
-        Integer cursus bibendum sem non pretium. Vestibulum in aliquet sem, quis
-        molestie urna. Aliquam semper ultrices varius. Aliquam faucibus sit amet
-        magna a ultrices. Aenean pellentesque placerat lacus imperdiet
-        efficitur. In felis nisl, luctus non ante euismod, tincidunt bibendum
-        mi. In a molestie nisl, eu sodales diam. Nam tincidunt lacus quis magna
-        posuere, eget tristique dui dapibus. Maecenas fermentum elementum
-        faucibus. Quisque nec metus vestibulum, egestas massa eu, sollicitudin
-        ipsum. Nulla facilisi. Sed ut erat ligula. Nam tincidunt nunc in nibh
-        dictum ullamcorper. Class aptent taciti sociosqu ad litora torquent per
-        conubia nostra, per inceptos himenaeos. Etiam ornare rutrum felis at
-        rhoncus. Etiam vel condimentum magna, quis tempor nulla.
-      </p>
-    </div>
+    <body className="login-background app-container" style={{ fontFamily: "'Press Start 2P', cursive" }}>
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-6 offset-lg-3">
+            <h1 className="text-center fade-in-out mb-4" style={{ color: "white" }}>Enter Your Ship Here</h1>
+            <Form onSubmit={handleSubmit}>
+              <Form.Group controlId="formUsername">
+                <Form.Label style={{ color: "white", fontFamily: "'Press Start 2P', cursive" }}>Username</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter username or email..."
+                  value={username}
+                  onChange={(event) => setUsername(event.target.value)}
+                  style={{ backgroundColor: "transparent", color: "white", border: "1px solid white", outline: "none", fontFamily: "'Press Start 2P', cursive" }}
+                />
+              </Form.Group>
+
+              <Form.Group controlId="formPassword">
+                <Form.Label style={{ color: "white", fontFamily: "'Press Start 2P', cursive" }}>Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  placeholder="Password"
+                  value={password}
+                  onChange={(event) => setPassword(event.target.value)}
+                  style={{ backgroundColor: "transparent", color: "white", border: "1px solid white", outline: "none", fontFamily: "'Press Start 2P', cursive" }}
+                />
+              </Form.Group>
+
+              <div className="d-flex justify-content-between align-items-center">
+                <Button variant="primary" type="submit" style={{ backgroundColor: "transparent", color: "white", border: "1px solid white", fontFamily: "'Press Start 2P', cursive" }}>
+                  Login
+                </Button>
+                
+              </div>
+            </Form>
+          </div>
+        </div>
+      </div>
+    </body>
   );
 }

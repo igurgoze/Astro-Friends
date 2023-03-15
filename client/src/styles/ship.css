@@ -1,0 +1,33 @@
+.ship {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.ship img {
+    width: 40%;
+    height: auto;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.ship:hover img {
+    opacity: 0.5;
+}
+
+.ship .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.ship:hover .overlay {
+    opacity: 1;
+}
