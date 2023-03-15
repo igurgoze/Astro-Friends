@@ -13,18 +13,16 @@
     color: white !important;
 }
 
-.nav-link:active {
-    color: inherit;
-    background-color: transparent;
-    text-decoration: none;
-}
 
+.nav-link.active {
+    background-color: transparent;
+    color: black !important;
+}
 
 
 .nav-link:focus,
 .nav-link:hover {
     transform: translateY(-3px);
     text-decoration: none;
-    color: white !important;
     outline: none;
 }
