@@ -1,13 +1,44 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
+import { useMutation } from '@apollo/client';
+import { LOGIN_USER } from '../../utils/mutations';
 import '../../styles/style.css';
 
-export default function LoginForm() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+import Auth from '../../utils/auth'
 
-  const handleSubmit = (event) => {
+export default function LoginForm() {
+  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [login, { error, data }] = useMutation(LOGIN_USER);
+
+  // update state based on form input changes
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
+  // submit form
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    console.log(formState);
+    try {
+      const { data } = await login({
+        variables: { ...formState },
+      });
+
+      Auth.login(data.login.token);
+    } catch (e) {
+      console.error(e);
+    }
+
+    // clear form values
+    setFormState({
+      email: '',
+      password: '',
+    });
   };
 
   return (
@@ -22,8 +53,8 @@ export default function LoginForm() {
                 <Form.Control
                   type="text"
                   placeholder="Enter username or email..."
-                  value={username}
-                  onChange={(event) => setUsername(event.target.value)}
+                  value={formState.email}
+                  onChange={handleChange}
                   style={{ backgroundColor: "transparent", color: "white", border: "1px solid white", outline: "none", fontFamily: "'Press Start 2P', cursive" }}
                 />
               </Form.Group>
@@ -33,8 +64,8 @@ export default function LoginForm() {
                 <Form.Control
                   type="password"
                   placeholder="Password"
-                  value={password}
-                  onChange={(event) => setPassword(event.target.value)}
+                  value={formState.password}
+                  onChange={handleChange}
                   style={{ backgroundColor: "transparent", color: "white", border: "1px solid white", outline: "none", fontFamily: "'Press Start 2P', cursive" }}
                 />
               </Form.Group>
