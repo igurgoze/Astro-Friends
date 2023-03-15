@@ -18,6 +18,14 @@ import {
   Route,
   RouterProvider
 } from 'react-router-dom';
+import "./gameScripts/particle.js";
+import "./gameScripts/projectile.js";
+import "./gameScripts/asteroids.js";
+import "./gameScripts/keyhandler.js";
+import "./gameScripts/player.js";
+import "./gameScripts/fx.js";
+import "./gameScripts/gameloop.js";
+import "./gameIndex.js";
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -42,24 +50,24 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="/" element={<AstoFriends />}>
-      <Route index element={<Home />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/FriendsList" element={<FriendsList />} />
-      <Route path="/Login" element={<Login />} />
-      <Route path="/Register" element={<Register />} />
-    </Route>
-  )
-)
-
-const App = () => (
-  <ApolloProvider client={client}>
-  <RouterProvider router={router}>
-    <AstoFriends />
-  </RouterProvider>
-  </ApolloProvider>
-);
-
+const App = () => {
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/" element={<AstoFriends />}>
+        <Route index element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/FriendsList" element={<FriendsList />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/Register" element={<Register />} />
+      </Route>
+    )
+  );
+  return (
+    <ApolloProvider client={client}>
+      <RouterProvider router={router}>
+        <AstoFriends />
+      </RouterProvider>
+    </ApolloProvider>
+  );
+}
 export default App;
