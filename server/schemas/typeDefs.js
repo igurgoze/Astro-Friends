@@ -6,6 +6,7 @@ type User {
     username: String
     email: String
     password: String
+    highscore: [Int]
   }
 
   type Auth {
@@ -22,6 +23,7 @@ type User {
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth # ! = required
     login(email: String!, password: String!): Auth
+    addNewHighScore(score: Int!, indexToAddTo: Int!): User
   }
 `;
 

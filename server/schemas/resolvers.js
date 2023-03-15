@@ -30,6 +30,32 @@ Mutation: {
 
       return { token, user };
     },
+    addNewHighScore: async (parent, { score, indexToAddTo }, context) => {
+      if(context.user){
+        try{
+          const user = await User.findById(context.user._id);
+          const highscores = [...user.highscore];
+          if(!highscores.length){
+            highscores.push(score);
+          }else{
+            console.log(user);
+            highscores.splice(indexToAddTo, 0, score);
+            if(highscores.length >= 4){
+              highscores.pop();
+            }
+          }
+          user.highscore = highscores;
+          console.log(highscores);
+          await user.save();
+          console.log(user)
+          return user;
+        } catch (err){
+          console.error(err);
+        }
+      }
+
+      throw new AuthenticationError("Need to Be Logged in.");
+    }
 }
 }
 

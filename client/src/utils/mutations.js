@@ -23,3 +23,11 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_NEW_HIGHSCORE = gql`
+  mutation AddNewHighScore($score: Int!, $indexToAddTo: Int!) {
+    addNewHighScore(score: $score, indexToAddTo: $indexToAddTo){
+      highscore
+  }
+}
+`
