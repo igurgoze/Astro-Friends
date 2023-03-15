@@ -49,13 +49,13 @@ export default function FriendsList() {
                 <span className="friend-score badge bg-secondary" style={{ fontFamily: "'Press Start 2P', cursive" }}>
                   {friend.score}
                 </span>
-                <button
+                <butto
                   className="btn btn-danger"
                   onClick={() => handleDeleteFriend(friend.name)}
                   style={{ backgroundColor: "transparent", color: "white", border: "1px solid white", fontFamily: "'Press Start 2P', cursive" }}
                 >
                   X
-                </button>
+                </butto>
               </div>
             ))}
           </div>

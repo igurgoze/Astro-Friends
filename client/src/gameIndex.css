@@ -1,0 +1,58 @@
+body {
+    color: #fff;
+    background-color: #000;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Press Start 2P', cursive;
+    overflow: hidden;
+}
+
+button {
+    outline: none;
+    border: none;
+    border-collapse: none;
+    border-radius: 8px;
+    padding: 10px;
+    color: #fff;
+    background-color: #2ecc71;
+    width: 240px;
+    font-size: 2em;
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    top: 65%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+}
+
+.fixed {
+    position: fixed;
+    color: white;
+    font-size: 3em;
+    margin-left: .5em;
+    margin-top: .5em;
+    user-select: none;
+}
+
+button:hover {
+    background-color: #3498db;
+
+}
+
+.screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#load {
+    font-size: 3em;
+}
+#load.screen {
+    animation: fadeIn 2s infinite alternate;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+}
