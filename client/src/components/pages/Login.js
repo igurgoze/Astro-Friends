@@ -53,6 +53,7 @@ export default function LoginForm() {
                 <Form.Control
                   type="text"
                   placeholder="Enter username or email..."
+                  name="email"
                   value={formState.email}
                   onChange={handleChange}
                   style={{ backgroundColor: "transparent", color: "white", border: "1px solid white", outline: "none", fontFamily: "'Press Start 2P', cursive" }}
@@ -64,6 +65,7 @@ export default function LoginForm() {
                 <Form.Control
                   type="password"
                   placeholder="Password"
+                  name="password"
                   value={formState.password}
                   onChange={handleChange}
                   style={{ backgroundColor: "transparent", color: "white", border: "1px solid white", outline: "none", fontFamily: "'Press Start 2P', cursive" }}
