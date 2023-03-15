@@ -120,9 +120,20 @@ export default class Player {
     kill() {
         this.state = this.dying;
         console.log(this.score)
+        let latestScore = {
+            score: this.score
+        }
+        localStorage.setItem("latestScore", JSON.stringify(latestScore));
+        console.log(localStorage.getItem("latestScore"));
         this.particles.spawn(16,this);
         this.boom.pause();
         this.boom.currentTime = 0;
         this.boom.play();
+    }
+
+    checkPlayerScores() {
+        if(playerIsLoggedIn()){
+            
+        }
     }
 }
