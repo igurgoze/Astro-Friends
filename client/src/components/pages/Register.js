@@ -41,18 +41,19 @@ export default function RegisterForm() {
   };
 
   return (
-    <div className='register-background' style={{color: 'white'}}>
+    <div className='register-background' style={{color: 'white', fontFamily: "'Press Start 2P', cursive"}}>
     <div className="d-flex justify-content-center align-items-center flex-column">
-      <h1 className="mb-4 fade-in-out">CREATE YOUR SHIP HERE</h1>
+      <h1 className="mb-4 fade-in-out">Create Your Ship Here</h1>
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="formUsername">
-          <Form.Label>Username</Form.Label>
+          <Form.Label style={{ color: "white", fontFamily: "'Press Start 2P', cursive" }} >Username</Form.Label>
           <Form.Control
             type="text"
             name = "username"
             placeholder="Enter username"
             value={formState.name}
             onChange={handleChange}
+            style={{ backgroundColor: "transparent", color: "white", border: "1px solid white", outline: "none", fontFamily: "'Press Start 2P', cursive" }}
           />
         </Form.Group>
 
@@ -64,21 +65,24 @@ export default function RegisterForm() {
             placeholder="Enter email"
             value={formState.email}
             onChange={handleChange}
+            style={{ backgroundColor: "transparent", color: "white", border: "1px solid white", outline: "none", fontFamily: "'Press Start 2P', cursive" }}
           />
         </Form.Group>
 
         <Form.Group controlId="formPassword">
-          <Form.Label>Password</Form.Label>
+          <Form.Label
+          style={{ color: "white", fontFamily: "'Press Start 2P', cursive" }}>Password</Form.Label>
           <Form.Control
             type="password"
             name= "password"
             placeholder="Password"
             value={formState.password}
             onChange={handleChange}
+            style={{ backgroundColor: "transparent", color: "white", border: "1px solid white", outline: "none", fontFamily: "'Press Start 2P', cursive" }}
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit"style={{ backgroundColor: "transparent", color: "white", border: "1px solid white", outline: "none", fontFamily: "'Press Start 2P', cursive" }}>
           Register
         </Button>
       </Form>
