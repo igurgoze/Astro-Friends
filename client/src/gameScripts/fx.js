@@ -6,7 +6,7 @@ export default class Fx {
     }
     
     init() {
-        this.cnv = document.getElementById("canvas");
+        this.cnv = window.canvasElement;
         this.score = document.querySelector("#scoreEl");
         this.ctx = this.cnv.getContext("2d");
     }

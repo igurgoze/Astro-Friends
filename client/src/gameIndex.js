@@ -1,23 +1,19 @@
-import Game from "./gameScripts/game";
-import Gui from "./gameScripts/gui";
-import "./Assets/heroShip.png";
-import "./Assets/EnemyAsteroidLarge.png";
-import "./Assets/EnemyAsteroid.png";
-import "./Assets/EnemyAsteroidSmall.png";
-import "./Assets/laser.mp3"
-import "./Assets/boom.mp3"
-let game = new Game()
-window.gui = new Gui(game);
+import heroShip from"./Assets/heroShip.png";
+import EnemyAsteroidLarge from "./Assets/EnemyAsteroidLarge.png";
+import EnemyAsteroid from "./Assets/EnemyAsteroid.png";
+import EnemyAsteroidSmall from "./Assets/EnemyAsteroidSmall.png";
+import laser from "./Assets/laser.mp3"
+import boom from "./Assets/boom.mp3"
 
 window.onload = function() {
     console.log("Loading...")
     window.gui.load([
-        { id: "player-img", var: document.createElement("img"), file: "./Assets/heroShip.png"},
-        { id: "asteroid-large", var: document.createElement("img"), file: "./Assets/EnemyAsteroidLarge.png"},
-        { id: "asteroid-img", var: document.createElement("img"), file: "./Assets/EnemyAsteroid.png"},
-        { id: "asteroid-small", var: document.createElement("img"), file: "./Assets/EnemyAsteroidSmall.png"},
-        { id: "laser-audio", var: document.createElement("audio"), file: "./Assets/laser.mp3"},
-        { id: "boom-audio", var: document.createElement("audio"), file: "./Assets/boom.mp3"},
+        { id: "player-img", var: document.createElement("img"), file: heroShip},
+        { id: "asteroid-large", var: document.createElement("img"), file: EnemyAsteroidLarge},
+        { id: "asteroid-img", var: document.createElement("img"), file: EnemyAsteroid},
+        { id: "asteroid-small", var: document.createElement("img"), file: EnemyAsteroidSmall},
+        { id: "laser-audio", var: document.createElement("audio"), file: laser},
+        { id: "boom-audio", var: document.createElement("audio"), file: boom},
     ])
 }
 window.onresize = function() {
