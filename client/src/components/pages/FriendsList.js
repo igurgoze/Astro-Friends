@@ -59,6 +59,10 @@ export default function FriendsList() {
               </div>
             ))}
           </div>
+          <div className="col-lg-4">
+            <h2 className="text-center" style={{ color: "white" }}>Your Highscore</h2>
+            {/* insert highscore content here?? */}
+          </div>
         </div>
       </div>
     </body>
