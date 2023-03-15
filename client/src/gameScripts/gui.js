@@ -1,24 +1,6 @@
-import React, {useRef} from 'react';
-import "../../gameIndex.css"
-import '../../styles/style.css';
-import Game from '../../gameScripts/game';
-import GameLoop from '../../gameScripts/gameloop';
-import StartImg from "../../Assets/Start_Splash.png";
-import EndImg from "../../Assets/End_Splash.png";
+import GameLoop from "./gameloop";
 
-export default function Home() {
-  //const canvasRef = useRef();
-
-  const funcForOnClick = () => {
-    window.gui.startGame();
-  }
-
-  const canvasRef = useRef();
-  const startRef = useRef();
-  const endRef = useRef();
-  let game = new Game();
-
-  class Gui {
+export default class Gui {
 
     constructor(game) {
         this.cnv = null;
@@ -36,27 +18,16 @@ export default function Home() {
     }
 
     prepareCanvas() {
-        this.cnv = canvasRef.current;
-        this.ctx = canvasRef.current.getContext("2d");
-
+        //this.cnv = document.getElementById("canvas")
+        //this.cnv = this.cnv.current;
+        // this.ctx = this.cnv.getContext("2d");
+        document.body.style.margin = 0;
+        document.body.style.padding = 0;
         this.resize();
     }
 
     toggleScreen(id, toggle) {
-      let element;
-      switch(id) {
-        case "canvas":
-          element = canvasRef.current;
-          break;
-        case "start":
-          element = startRef.current;
-          window.canvasElement = canvasRef.current;
-          window.cantexElement = canvasRef.current.getContext('2d');
-          break;
-        default:
-          element = endRef.current;
-          break;
-      }
+        let element = document.getElementById(id)
         let display = ( toggle ) ? "block" : "none";
         element.style.display = display;
     }
@@ -81,19 +52,16 @@ export default function Home() {
         }
     }
 
-    async beginLoadingImage(imgVar, fileName){
+    beginLoadingImage(imgVar, fileName){
+        imgVar.onload = () => this.launchIfReady();
         console.log("An image is being loaded...", fileName);
         imgVar.src = fileName;
-        await imgVar.src;
-        this.launchIfReady();
     }
 
-    async beginLoadingAudio(audioVar, fileName){
-        console.log("A sound is being loaded...", fileName);
+    beginLoadingAudio(audioVar, fileName){
         audioVar.src = fileName;
-
-        await audioVar.src;
-        this.launchIfReady();
+        console.log("A sound is being loaded...", fileName);
+        audioVar.addEventListener('canplay', () => this.launchIfReady());
     }
 
     load(resources) {
@@ -144,27 +112,4 @@ export default function Home() {
         this.showScreen("end");
         this.gameloop.stop();
     }
-}
-  window.gui = new Gui(game);
-
-  return (
-    <div className='home-background' style={{color: 'white', fontFamily: "'Press Start 2P', cursive"}}>
-    <div>
-      <h1>Are you ready to rock!?</h1>
-      <div className="fixed"><span>Score: </span><span id="scoreEl">0</span></div>
-      <canvas ref={canvasRef} id="canvas" style={{display: "none"}}></canvas>
-      <div id="load" className="screen" style={{display: "block"}}>
-        Loading, Please Wait...
-      </div>
-      <div ref={startRef} id="start" className="screen" style={{display: "none"}}>
-        <img src={StartImg} alt='this is the home screen.'/>
-        <button onClick={funcForOnClick}>Let's Play!</button>
-      </div>
-      <div ref={endRef} id="end" className="screen" style={{display: "none"}}>
-        <img src={EndImg} alt='The Game has ended.'/>
-        <button onClick={funcForOnClick}>Play Again!</button>
-      </div>
-    </div>
-    </div>
-  );
 }
