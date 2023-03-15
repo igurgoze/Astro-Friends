@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FormControl } from 'react-bootstrap';
+import { useMutation } from '@apollo/client';
+import { ADD_NEW_HIGHSCORE } from '../../utils/mutations';
+
 import '../../styles/style.css';
 
 export default function FriendsList() {
@@ -10,6 +13,7 @@ export default function FriendsList() {
     { name: 'Ian', score: 300 },
   ]);
   const [searchQuery, setSearchQuery] = useState('');
+  const [addNewHighScore, {error}] = useMutation(ADD_NEW_HIGHSCORE);
 
   const handleDeleteFriend = (name) => {
     const updatedFriends = friends.filter((friend) => friend.name !== name);
