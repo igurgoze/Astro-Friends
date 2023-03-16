@@ -5,6 +5,16 @@ const resolvers = {
       Query: {
     users: async () => {
       return User.find();
+    },
+    user: async (parent, {username}) => {
+      let userToReturn = await User.findOne({ username });
+      return userToReturn;
+    },
+    me: async (parent, args, context) => {
+      if(context.user) {
+        return User.findOne({ _id: context.user._id });
+      }
+      throw new AuthenticationError("You Must Be Logged In");
     }
 },
 Mutation: {
