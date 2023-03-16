@@ -5,7 +5,7 @@
 }
 
 .friends-list-background {
-    background-image: url(../Assets/povship.gif);
+    background-image: url("../Assets/povship.gif");
     height: 100vh;
     width: 100%;
     background-size: cover;
@@ -13,22 +13,22 @@
 
 
 .home-background {
-    background-image: url(../Assets/povship.gif);
+    background-image: url("../Assets/povship.gif");
     height: 100vh;
 }
 
 .register-background {
-    background-image: url(../Assets/povship.gif);
+    background-image: url("../Assets/povship.gif");
     height: 100vh;
 }
 
 .login-background {
-    background-image: url(../Assets/povship.gif);
+    background-image: url("../Assets/povship.gif");
     height: 100vh;
 }
 
 .about-background {
-    background-image: url(../Assets/povship.gif);
+    background-image: url("../Assets/povship.gif");
     height: 100vh;
 }
 

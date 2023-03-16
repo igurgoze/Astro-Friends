@@ -131,9 +131,9 @@ export default class Player {
         this.boom.play();
     }
 
-    checkPlayerScores() {
-        if(playerIsLoggedIn()){
+    // checkPlayerScores() {
+    //     if(playerIsLoggedIn()){
             
-        }
-    }
+    //     }
+    // }
 }
