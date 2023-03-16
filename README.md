@@ -14,8 +14,6 @@ Retro Asteroids playable on your machine or mobile device. Using ReactJS you can
 
 - [Contribution](#Contributing)
 
-- [Test](#Test)
-
 - [Questions](#Questions)
 
 
@@ -45,14 +43,5 @@ Hit the play to start playing or browse through the tabs. Friendslist to see you
 [Logan Peterson](https://github.com/codeDevLogan)
 
 
-## Test
-
-
-
 ## Questions
 Feel Free to ask any questions to the contributors above.
-
-GitHub Username: [](https://github.com/)
-
-
-Email Address: []()
