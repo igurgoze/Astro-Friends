@@ -1,8 +1,8 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import loganship from '../../Assets/myship.png';
-import ianship from '../../Assets/ianship.png';
-import leoship from '../../Assets/leoship.png';
+import ianship from '../../Assets/hisShip.png';
+import leoship from '../../Assets/yourShip.png';
 import '../../styles/ship.css';
 
 export default function About() {
