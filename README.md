@@ -26,7 +26,7 @@ run 'npm install' on your local machine to required all needed packages.
 ## Usage
 Hit the play to start playing or browse through the tabs. Friendslist to see your score, login or create your account in the register tab.
 
-[Deployed Version]()
+[Deployed Version](https://igurgoze.github.io/React_Portfolio/)
 
 ![Homepage](./screenshots/homepage.png)
 
